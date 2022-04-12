@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alumnos</title>
+    <link rel="stylesheet" href="/css/alumnos.css">
+</head>
+<body>
+    <a href="/nuevo.html">Agregar Alumno</a>
+    <ul>
+        <%  for (let i = 0; i < alumnos.length; i++) { %>
+            <li>
+                Numero: #<%= alumnos[i].id %> <br>
+                Nombre: <%= alumnos[i].name %>
+                <a href="/alumnos/ver?id=<%= alumnos[i].id %>">Ver</a>
+            </li>
+        <%  } %>
+    </ul>
+</body>
+</html>
