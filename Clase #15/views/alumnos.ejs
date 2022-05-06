@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Alumnos</title>
+    <link rel="stylesheet" href="/css/alumnos.css">
+</head>
+
+<body>
+    <a href="/nuevo.html">Agregar Nuevo</a>
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    ID
+                </th>
+                <th>
+                    Nombre
+                </th>
+                <th>
+                    Accion
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for (let i=0; i < alumnos.length; i++) { %>
+                <tr>
+                    <td>
+                        <%= alumnos[i].id %>
+                    </td>
+                    <td>
+                        <%= alumnos[i].name %>
+                    </td>
+                    <td>
+                        <a href="/alumnos/ver?id=<%=alumnos[i].id%>">Ver</a>
+                        <a href="/alumnos/editar?id=<%=alumnos[i].id%>">Editar</a>
+
+                    </td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+</body>
+
+</html>
