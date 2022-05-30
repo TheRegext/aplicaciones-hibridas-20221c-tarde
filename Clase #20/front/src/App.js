@@ -1,14 +1,9 @@
-import Contador from './components/Contador'
+import DigimonList from "./Components/Digimon/DigimonList";
 
 function App() {
   return (
     <div className="App">
-      App
-      <Contador increment={5} />
-      <Contador increment={1} />
-      <Contador increment={-1} />
-      <Contador increment={10} />
-
+      <DigimonList />
     </div>
   );
 }
