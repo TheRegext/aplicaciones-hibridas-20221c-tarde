@@ -1,7 +1,7 @@
 import {useState} from 'react'
 // RENDERIZADO
 function Contador({increment}){
-    let [count, setCount] = useState(0)
+    const [count, setCount] = useState(0)
 
     function handleAdd(event){
         event.preventDefault();
