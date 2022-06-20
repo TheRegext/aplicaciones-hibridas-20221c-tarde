@@ -9,6 +9,7 @@ function find (req, res) {
 
 function findOne (req, res) {
   const id = req.params.idProject
+  console.log(req.user)
   ProjectModel.findOne(id)
     .then(function (project) {
       if (project) {
@@ -28,8 +29,19 @@ function create (req, res) {
     })
 }
 
+function update (req, res) {
+  const id = req.params.idProject
+  const project = req.body
+
+  ProjectModel.update(id, project)
+    .then(function (project) {
+      res.status(200).json(project)
+    })
+}
+
 export {
   find,
   findOne,
-  create
+  create,
+  update
 }

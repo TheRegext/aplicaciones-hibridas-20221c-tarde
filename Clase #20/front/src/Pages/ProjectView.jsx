@@ -13,9 +13,9 @@ function ProjectView(){
 
     return (
         <div>
-        <h1>Project View</h1>
-        <p>{project.name}</p>
-        <p>{project.description}</p>
+            <h1>Project View</h1>
+            <p>{project.name}</p>
+            <p>{project.description}</p>
         </div>
     );
 }

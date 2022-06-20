@@ -29,8 +29,18 @@ async function create (project) {
     })
 }
 
+async function update (id, project) {
+  return cliente.connect()
+    .then(async function () {
+      const db = cliente.db('Project01')
+      await db.collection('Projects').updateOne({ _id: new ObjectId(id) }, { $set: project })
+      return project
+    })
+}
+
 export {
   find,
   findOne,
-  create
+  create,
+  update
 }
