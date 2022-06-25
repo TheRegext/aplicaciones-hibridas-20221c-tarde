@@ -1,19 +1,12 @@
 
 async function add(project){
-/*
-    const list = JSON.parse(localStorage.getItem('projects')) || []
-    const newProject = {...project, id: list.length + 1}
-    list.push(newProject)
-    localStorage.setItem('projects', JSON.stringify(list))
-
-    return newProject
-*/
     return fetch(
         'http://localhost:2022/api/projects',
         {
             method: 'POST',
             headers:{
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'auth-token': localStorage.getItem('token')
             },
             body: JSON.stringify(project)
         })
@@ -25,7 +18,11 @@ async function add(project){
 
 async function find(){
 
-    return fetch('http://localhost:2022/api/projects')
+    return fetch('http://localhost:2022/api/projects',{
+        headers:{
+            'auth-token': localStorage.getItem('token')
+        }
+    })
     .then(response => response.json())
     .then(list => {
         return list
@@ -33,7 +30,11 @@ async function find(){
 }
 
 async function findById(id){
-    return fetch(`http://localhost:2022/api/projects/${id}`)
+    return fetch(`http://localhost:2022/api/projects/${id}`,{
+        headers:{
+            'auth-token': localStorage.getItem('token')
+        }
+    })
     .then(response => response.json())
     .then(project => {
         return project
