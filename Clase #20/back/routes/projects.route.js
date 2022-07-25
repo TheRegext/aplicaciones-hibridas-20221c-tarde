@@ -13,8 +13,8 @@ function setUser (req, res, next) {
 }
 
 const route = express.Router()
-route.all('/api/projects', autentication)
-route.all('/api/projects/*', autentication)
+// route.all('/api/projects', autentication)
+// route.all('/api/projects/*', autentication)
 
 route.get('/api/projects', ProjectController.find)
 route.post('/api/projects', ProjectController.create)

@@ -6,6 +6,7 @@ import PageNotFound from "./Pages/PageNotFound";
 import HomePage from './Pages/HomePage';
 import PageLogin from './Pages/PageLogin';
 import { useEffect, useState } from 'react';
+import PageSocket from './Pages/PageSocket';
 
 function App() {
   const navigate = useNavigate();
@@ -15,7 +16,7 @@ function App() {
     const token = localStorage.getItem('token');
     if (token) {
       setUser(JSON.parse(localStorage.getItem('user')));
-      navigate('/projects');
+      //navigate('/projects');
     }
     else{
       navigate('/login');
@@ -32,11 +33,13 @@ function App() {
   return (
     <div className="App">
         <h1>Hola Soy el APP {user?.name}</h1>
+        
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<PageLogin onLogin={onLogin} />} />
           <Route path="/projects" element={<ProjectsList />} />
           <Route path="/projects/:id" element={<ProjectView />} />
+          <Route path="/socket" element={<PageSocket />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
     </div>

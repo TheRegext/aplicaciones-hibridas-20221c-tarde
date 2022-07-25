@@ -14,6 +14,7 @@ function findOne (req, res) {
     .then(function (project) {
       if (project) {
         res.status(200).json(project)
+        req.socketClient.emit('project', JSON.stringify(project))
       } else {
         res.status(404).json({ message: `El proyecto #${id} no se encuentra en el sistema.` }) // ok
       }
@@ -25,6 +26,7 @@ function create (req, res) {
   console.log(req.body)
   ProjectModel.create(project)
     .then(function (project) {
+      req.socketClient.emit('new-project', project)
       res.status(201).json(project)
     })
 }
